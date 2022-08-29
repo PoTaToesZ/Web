@@ -31,8 +31,7 @@ app.post('/insert', async (req, res) => {
     const name = req.body.txtName
     const price = req.body.txtPrice
     const url = req.body.txtURL;
-    if(name.length === 0){
-
+    if(name.length == null){
         res.render('insert',{ nameErr:'Name cannot be empty!'})
     }
     if (url.length == 0) {
