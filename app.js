@@ -12,9 +12,6 @@ app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
 app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
-hbs.registerHelper('checkColor',(color, color1)=>{
-    return color == color1;
-})
 app.get('/edit/:id', async (req, res) => {
     const idValue = req.params.id
     const productToEdit = await getDocumentById(idValue, "Products")
