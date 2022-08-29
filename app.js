@@ -31,6 +31,10 @@ app.post('/insert', async (req, res) => {
     const name = req.body.txtName
     const price = req.body.txtPrice
     const url = req.body.txtURL;
+    if(name.length === 0){
+        var result = await getAll("Products")
+        res.render('insert',{products:result, nameErr:'Name cannot be empty!'})
+    }
     if (url.length == 0) {
         var result = await getAll("Products")
         res.render('insert', { products: result, picError: 'Please input the picture of the product!' })
