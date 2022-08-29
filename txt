@@ -1,0 +1,31 @@
+}else if (name== null || name.length <= 6){
+        var result = await getAll("Products")
+        res.render('insert', { products: result, nameError: 'Name of the product must be at least 5 characters!'})
+    }
+(check string)
+
+{{#if (checkPrice price)}}
+    <td style="color: red">{{price}}</td>
+    {{else}}
+    <td>{{price}}</td>
+    {{/if}}
+
+    hbs.registerHelper('checkPrice',(price)=>{
+        return price > 20;
+    })
+(check price)
+
+hbs.registerHelper('checkColor',(color, color1)=>{
+    return color == color1;
+})
+{{#if (checkColor 'Green' color)}}
+                <td>Wrong Color</td>
+            {{else}}
+                <td>{{color}}</td>
+            {{/if}} 
+(check color)
+
+if(isNaN(price) == true) {
+    const errMsg = "Price must be a number"
+    res.render('insert', {products: result,errMsg: errMsg})
+}
